@@ -47,7 +47,7 @@ def predictLabel(image_path, model_pred, top_k = 1):
 
     top_values, top_indices = tf.math.top_k(ps, top_k)
     print("These are the top propabilities",top_values.numpy()[0])
-    top_classes = [class_names[str(value)] for value in top_indices.cpu().numpy()[0]]
+    top_classes = [class_names[str(value+1)] for value in top_indices.cpu().numpy()[0]]
     print('Of these top classes', top_classes)
     return top_values.numpy()[0], top_classes
 
